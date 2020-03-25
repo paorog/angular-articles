@@ -1,0 +1,21 @@
+
+<h2>All Articles</h2>
+
+<input type="text" class="search" placeholder="Search" title="Key in a text" (change)="search($event.target.value)">
+<select class="searchby" (change)="searchByCategory($event.target.value)">
+    <option value="author">Author</option>
+    <option value="title">Title</option>
+    <option value="body">Body</option>
+</select>
+
+<ul class="articles" >
+    <li class="article" *ngFor="let article of articles" >
+        <div class="card">
+            <div class="content">
+                <div class="title">{{ article.title }}</div>
+                <p class="text">{{ article.body }}</p>
+                <h4>Author : {{ article.user }}</h4>
+            </div>
+        </div>
+    </li>
+</ul>

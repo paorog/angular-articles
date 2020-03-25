@@ -1,0 +1,27 @@
+<div class="container-fluid" style="margin-top: 10px">
+
+  <input type="text" class="search" placeholder="Search User" title="Key in a text" (change)="search($event.target.value)">
+  <select class="searchby" (change)="searchByCategory($event.target.value)">
+      <option value="name">Name</option>
+      <option value="username">Username</option>
+      <option value="email">Email</option>
+      <option value="address">Address</option>
+  </select>
+
+  <div class="table-row header">
+      <div class="text">ID</div>
+      <div class="text">Name</div>
+      <div class="text">Username</div>
+      <div class="text">Email</div>
+      <div class="text">Address</div>
+  </div>
+
+  <div class="table-row" *ngFor="let user of users">
+      <div class="text">{{ user.id }}</div>
+      <div class="text">{{ user.name }}</div>
+      <div class="text">{{ user.username }}</div>
+      <div class="text" title="{{ user.email }}">{{ user.email }}</div>
+      <div class="text">{{ user.address.street }} {{ user.address.suite }} {{ user.address.city }} {{ user.address.zipcode }} {{ user.address.geo.lat }} {{ user.address.geo.lng }}</div>
+  </div>
+
+</div>
